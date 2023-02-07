@@ -3,17 +3,13 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
         Average();
-
+//        ArrayList<Integer> list = converter("5,12,20,7,48,9,5,");
+//        System.out.println(list);
     }
 
-    public static int Average() {
-        ArrayList<Integer> list = new ArrayList<>();
-        list.add(10);
-        list.add(5);
-        list.add(-7);
-        list.add(15);
-        list.add(28);
-        list.add(3);
+    public static void Average() {
+        ArrayList<Integer> list ;
+        list = converter("10,5,-7,15,28,3,");
         int average;
         int sum = 0;
 
@@ -23,10 +19,24 @@ public class Main {
         }
         average = sum / list.size();
         System.out.println("Average is : " + average);
-        return average;
     }
 
+    public static ArrayList<Integer> converter(String s) {
+        ArrayList<Integer> list = new ArrayList<>();
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) != ',') {
+                sb.append(s.charAt(i));
+            } else {
+                list.add(Integer.parseInt(sb.toString()));
+                sb = new StringBuilder();
+            }
+        }
+        return list;
+    }
 }
+
+
 
 
 
